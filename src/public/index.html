@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Imposter</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" type="module"></script>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    </head>
+
+    <body onload="renderImposterCount()">
+
+        <div id="menu" class="menu">
+
+            <h1 id="title">Imposter</h1>
+            <h2 id="codeDisplay" style="display: none;">Code: loading</h2>
+            <h2 id="playerName" style="display: none;"></h2>
+
+            <div id="pre-menu" class="menu-buttons">
+                <button id="createGame" onclick="showMenu()">Spiel erstellen</button>
+                <button id="joinGame" onclick="joinGame()">Spiel beitreten</button>
+            </div>
+
+            <div class="menu-buttons" id="menu-buttons" style="display: none;">
+                <button id="spieler" onclick="showPlayers()">Lokale Spieler</button>
+                <button id="onlineSpieler" onclick="showOnlinePlayers()">Online Spieler</button>
+                <button id="kategorie" onclick="showCategories()">Kategorie</button>
+                <button id="einstellungen" onclick="showSettings()">Einstellungen</button>
+                <button id="imposter" onclick="showImposter()">Imposter: 0</button>
+            </div>
+
+
+            <div id="playerListContainer" class="ListContainer" style="display: none;">
+                <ul id="playerList"></ul>
+                <button id="addPlayer" onclick="addPlayer()">+</button>
+            </div>
+
+            <div id="onlinePlayerListContainer" class="ListContainer" style="display: none;">
+                <ul id="onlinePlayerList"></ul>
+            </div>
+
+            <div id="imposterListContainer" class="ListContainer" style="display: none;">
+                <ul id="imposterList"></ul>
+            </div>
+
+            <div id="settingsContainer" class="ListContainer hidden">
+                <ul id="settingsList">
+                    <li>
+                        <span>Imposter Hinweis</span>
+                        <button id="hintCheckBox" class="material-symbols-outlined" onclick="toggleSetting('hint')">check_box</button>
+                    </li>
+                    <li>
+                        <span>Imposter Teaming</span>
+                        <button id="teamingCheckBox" class="material-symbols-outlined" onclick="toggleSetting('teaming')">check_box</button>
+                    </li>
+                    <li>
+                        <span>Definition anzeigen</span>
+                        <button id="definitionCheckBox" class="material-symbols-outlined" onclick="toggleSetting('definition')">check_box</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="gameContainer" class="gameContainer hidden">
+                <div id="overlay" class="overlay">
+                    <h2 id="currentPlayer">Name</h2>
+                </div>
+                <span id="word">Wort</span>
+                <span id="definition" class="hidden">Definition: </span>
+                <span id="hint" class="hidden">Hinweis: </span>
+                <span id="teaming" class="hidden">Andere Imposter: </span>
+            </div>
+
+
+            <div id="categoryContainer" class="ListContainer" style="display: none;">
+                <ul id="categoryList">
+                    <li>
+                        <span>Filme</span>
+                        <button id="filmeCheckBox" class="material-symbols-outlined" onclick="selectCategory('filme')">O</button>
+                    </li>
+                    <li>
+                        <span>Unterhaltung</span>
+                        <button id="unterhaltungCheckBox" class="material-symbols-outlined" onclick="selectCategory('unterhaltung')">O</button>
+                    </li>
+                    <li>
+                        <span>Allgemein</span>
+                        <button id="allgemeinCheckBox" class="material-symbols-outlined" onclick="selectCategory('allgemein')">O</button>
+                    </li>
+                </ul>
+            </div>
+
+
+            <button id="startButton" onclick="startGame()" class="hidden">Start</button>
+
+        </div>
+
+    </body>
+</html>
